@@ -1,2 +1,1 @@
-# Insertion-sort
-Visualisation of insertion sort using c
+#MY FIRST GITHUB  PROJECT 
