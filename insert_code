@@ -1,0 +1,126 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//declaration
+typedef struct cel *liste;
+typedef struct cel
+{
+	int info;
+	liste svt;
+	liste pre;
+}cel;
+
+//verification si il exite un espace
+liste verifie(){
+	liste nouv=(liste)malloc(sizeof(cel));
+	if(nouv==NULL)
+	{
+		printf("memory error");
+		exit(-1);
+	}
+	return nouv;
+}
+
+//creer une liste
+void ajouter_liste(liste* tete, int e ) {
+    liste nouv = verifie();
+
+    nouv->info = e;
+    nouv->svt = *tete;
+    nouv->pre = NULL;
+    
+
+    if (*tete != NULL) {
+        (*tete)->pre = nouv;
+    }
+
+    *tete = nouv;
+}
+
+//affichage de la liste
+void affiche_liste (liste tete){
+    while (tete != NULL) {
+        printf("%d ", tete->info);
+        tete = tete->svt;
+    }
+    printf("\n");
+}
+
+
+/*
+void Tri_Insertion(int *t, int n) {
+    int i, j, v;
+    for (i = 1; i < n; i++) {
+        v = t[i];
+        j = i;
+        while (j > 0 && t[j - 1] > v) {
+            t[j] = t[j - 1];
+            j = j - 1;
+        }
+        t[j] = v;
+    }
+    for (i = 0; i < n; i++) {
+        printf("%d\t", t[i]);
+    }
+    printf("\n");
+}*/
+
+
+// Fonction pour trier une liste doublement chaînée par insertion
+void Tri_Insertion1(liste tete) {
+	int temp;
+    liste i, j, v;
+    v = tete->svt;
+
+    while (v != NULL) {
+        j = v->pre;
+        i = v;
+        while (j != NULL && j->info > i->info) {
+            // Échange les éléments
+            temp = j->info;
+            j->info = i->info;
+            i->info = temp;
+
+            i = j;
+            j = j->pre;
+        }
+        v = v->svt;
+    }
+    affiche_liste(tete);
+}
+
+
+int main(int argc, char *argv[]) {
+	
+   // int t[7] = {30, -10, 0, 10, 13, 7, 8};
+    //int n = 7;
+
+	int i,taille,e;
+	liste tete = NULL;
+/*	
+    ajouter_tete(&tete, 30);
+    ajouter_tete(&tete, -10);
+    ajouter_tete(&tete, 0);
+    ajouter_tete(&tete, 10);
+    ajouter_tete(&tete, 13);
+    ajouter_tete(&tete, 7);
+    ajouter_tete(&tete, 8);
+*/  
+	printf("donnez la taille de la liste : ");
+	scanf("%d",&taille);
+	
+    for(i=0;i<taille;i++){
+    	printf("donnez une valeur : ");
+		scanf("%d",&e);
+		ajouter_liste(&tete, e);
+	}
+
+    printf("Liste non triee : ");
+    affiche_liste(tete);
+
+    printf("Liste triee : ");
+    Tri_Insertion1(tete);
+
+//    Tri_Insertion(t, n);
+    return 0;
+}
