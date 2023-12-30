@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/LOTFI/Desktop/sdl new page",
-      "program": "c:/Users/LOTFI/Desktop/sdl new page/build/Debug/outDebug",
+      "cwd": "c:/Users/LOTFI/Desktop/sdl new page/Insertion-sort",
+      "program": "c:/Users/LOTFI/Desktop/sdl new page/Insertion-sort/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
