@@ -6,8 +6,7 @@ void printintro() {
     printf("1. Random list\n");
     printf("2. Given list\n");
     printf("3. Information about insertion sort \n");
-    printf("4. Settings \n");
-    printf("5. EXIT ->\n");
+    printf("4. EXIT ->\n");
 }
 
 

@@ -237,11 +237,8 @@ renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
   break;
   case 3:  printSortingInfo();
   break;
-  case 4: 
-  //settings 
 
-  break;
-  case 5:
+  case 4:
   //exit
   return(0);
   break;
@@ -262,7 +259,7 @@ renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     break;
   }
 
-
+bool isPaused = false;
   
   // Event loop
   SDL_Event event;
