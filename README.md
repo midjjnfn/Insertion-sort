@@ -20,10 +20,10 @@ This program demonstrates the insertion sort algorithm visually using the SDL li
 
 1. **Compile the Program**:
     - Use a C compiler with SDL2 support.
-    - Example: `gcc -o insertion_sort_visualizer insertion_sort_visualizer.c -lSDL2 -lSDL2_ttf -lSDL2_gfx`
+    - Example: `gcc -o main main.c -lSDL2 -lSDL2_ttf -lSDL2_gfx`
 
 2. **Run the Program**:
-    - Execute the compiled binary: `./insertion_sort_visualizer`
+    - Execute the compiled binary: `./main`
 
 3. **Interaction**:
     - Follow the on-screen instructions to generate random arrays, input data, and view the sorting visualization.
