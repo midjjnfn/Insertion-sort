@@ -51,6 +51,7 @@ void affiche_liste(liste tete){
 }
 
 
+
 void render1(liste tete, int blockWidth) {
     SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(gRenderer);
@@ -120,6 +121,8 @@ void render(SDL_Renderer *renderer, liste tete, TTF_Font *font) {
     SDL_Delay(100);    
 }
 void Tri_Insertion1(liste tete,SDL_Renderer *renderer, TTF_Font *font) {
+
+
     int temp;
     liste i, j, v;
     v = tete->svt;
@@ -136,10 +139,34 @@ void Tri_Insertion1(liste tete,SDL_Renderer *renderer, TTF_Font *font) {
             j = j->pre;
         }
         v = v->svt;
+
         render(renderer, tete, font);
         SDL_Delay(100);
     }
 }
+
+
+    }
+}
+
+void render(liste tete, int blockWidth) {
+    SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+    SDL_RenderClear(gRenderer);
+
+    // Draw your sorting bars here
+    int posX = 0;
+    while (tete != NULL) {
+        SDL_Rect bar = { posX, SCREEN_HEIGHT - tete->info, blockWidth, tete->info };
+        SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0xFF, 0xFF); // Blue
+        SDL_RenderFillRect(gRenderer, &bar);
+
+        tete = tete->svt;
+        posX += blockWidth;
+    }
+
+    SDL_RenderPresent(gRenderer);
+}
+
 
 int main(int argc, char* args[]) {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -218,4 +245,3 @@ while (!endProgram) {
     SDL_Quit();
 
     return 0;
-}
